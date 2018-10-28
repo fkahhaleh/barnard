@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/kennygrant/sanitize"
-	"layeh.com/barnard/uiterm"
+	"github.com/savvamadar/barnard/uiterm"
 	"layeh.com/gumble/gumble"
 )
 
