@@ -101,8 +101,7 @@ func (b *Barnard) OnTextInput(ui *uiterm.Ui, textbox *uiterm.Textbox, text strin
 			b.Client.Disconnect()
 			b.Ui.Close()
 			return
-		}
-		else if text == "voice" {
+		} else if text == "voice" {
 			if b.UiStatus.Text == "  Tx  " {
 				b.UiStatus.Text = " Idle "
 				b.UiStatus.Fg = uiterm.ColorBlack
