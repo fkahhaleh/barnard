@@ -3,7 +3,7 @@ package main
 import (
 	"crypto/tls"
 
-	"github.com/savvamadar/barnard""
+	"github.com/savvamadar/barnard"
 	"layeh.com/gumble/gumble"
 	"layeh.com/gumble/gumbleopenal"
 )
