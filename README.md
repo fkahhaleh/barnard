@@ -25,7 +25,7 @@ After running the command above, `barnard` will be compiled as `$(go env GOPATH)
 
 ### Usage
 
-To run: ./$GOPATH/bin/barnard [-flags]
+To run: $GOPATH/bin/barnard [-flags]
 
 ### Flags
 
@@ -37,7 +37,7 @@ To run: ./$GOPATH/bin/barnard [-flags]
 - certificate:
 - voiceon:
 
-Sample: ./$GOPATH/bin/barnard -server 127.0.0.1:64738 -username myUser -insecure -voiceon
+Sample: $GOPATH/bin/barnard -server 127.0.0.1:64738 -username myUser -insecure -voiceon
 
 This will connect myUser to the 127.0.0.1 mumble ip running on port 64738 and won't check for certificates and will have the voice on by default.
 
