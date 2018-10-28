@@ -9,13 +9,14 @@ chat software.
 
 Requirements:
 
-1. [Go](https://golang.org/)
-2. [Git](https://git-scm.com/)
-3. [Opus](https://opus-codec.org/) development headers
-4. [OpenAL](http://kcat.strangesoft.net/openal.html) development headers
+1. [Go](https://golang.org/) - sudo apt-get install goland
+2. [Git](https://git-scm.com/) - sudo apt-get install git
+3. [Opus](https://opus-codec.org/) development headers - sudo apt-get install libopus-dev
+4. [OpenAL](http://kcat.strangesoft.net/openal.html) development headers - sudo apt-get install libopenal-dev
 
 To fetch and build:
 
+    export GOPATH=$HOME/go 
     go get -u github.com/savvamadar/barnard
 
 After running the command above, `barnard` will be compiled as `$(go env GOPATH)/bin/barnard`.
@@ -37,6 +38,8 @@ To run: ./$GOPATH/bin/barnard [-flags]
 - voiceon:
 
 Sample: ./$GOPATH/bin/barnard -server 127.0.0.1:64738 -username myUser -insecure -voiceon
+
+This will connect myUser to the 127.0.0.1 mumble ip running on port 64738 and won't check for certificates and will have the voice on by default.
 
 ### Chat Commands (useful for SSH)
 
