@@ -13,6 +13,7 @@ type Barnard struct {
 	Client *gumble.Client
 
 	Address   string
+	VoiceOn   bool
 	TLSConfig tls.Config
 
 	Stream *gumbleopenal.Stream

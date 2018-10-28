@@ -97,6 +97,28 @@ func (b *Barnard) OnTextInput(ui *uiterm.Ui, textbox *uiterm.Textbox, text strin
 		return
 	}
 	if b.Client != nil && b.Client.Self != nil {
+		if ( text == "quit" || text == "exit" ) {
+			b.Client.Disconnect()
+			b.Ui.Close()
+			return
+		}
+		else if text == "voice" {
+			if b.UiStatus.Text == "  Tx  " {
+				b.UiStatus.Text = " Idle "
+				b.UiStatus.Fg = uiterm.ColorBlack
+				b.UiStatus.Bg = uiterm.ColorWhite
+				b.AddOutputMessage(b.Client.Self, "Turned off audio input")
+				b.Stream.StopSource()
+			} else {
+				b.UiStatus.Fg = uiterm.ColorWhite | uiterm.AttrBold
+				b.UiStatus.Bg = uiterm.ColorRed
+				b.UiStatus.Text = "  Tx  "
+				b.AddOutputMessage(b.Client.Self, "Turned on audio input")
+				b.Stream.StartSource()
+			}
+			ui.Refresh()
+			return
+		}
 		b.Client.Self.Channel.Send(text, false)
 		b.AddOutputMessage(b.Client.Self, text)
 	}
@@ -158,6 +180,15 @@ func (b *Barnard) OnUiInitialize(ui *uiterm.Ui) {
 	b.Ui.AddKeyListener(b.OnScrollOutputBottom, uiterm.KeyEnd)
 
 	b.start()
+
+	if( b.VoiceOn ){
+		b.UiStatus.Fg = uiterm.ColorWhite | uiterm.AttrBold
+		b.UiStatus.Bg = uiterm.ColorRed
+		b.UiStatus.Text = "  Tx  "
+		b.AddOutputMessage(b.Client.Self, "Turned on audio input")
+		b.Stream.StartSource()
+		ui.Refresh()
+	}
 }
 
 func (b *Barnard) OnUiResize(ui *uiterm.Ui, width, height int) {

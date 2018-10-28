@@ -16,11 +16,33 @@ Requirements:
 
 To fetch and build:
 
-    go get -u layeh.com/barnard
+    go get -u github.com/savvamadar/barnard
 
 After running the command above, `barnard` will be compiled as `$(go env GOPATH)/bin/barnard`.
 
 ## Manual
+
+### Usage
+
+To run: ./$GOPATH/bin/barnard [-flags]
+
+### Flags
+
+- flag: default
+- server: localhost:64738
+- username:
+- password:
+- insecure:
+- certificate:
+- voiceon:
+
+Sample: ./$GOPATH/bin/barnard -server 127.0.0.1:64738 -username myUser -insecure -voiceon
+
+### Chat Commands (useful for SSH)
+
+- quit: disconnects
+- exit: disconnects
+- voice: toggles voice on or off
 
 ### Key bindings
 
@@ -37,6 +59,10 @@ After running the command above, `barnard` will be compiled as `$(go env GOPATH)
 
 GPLv2
 
-## Author
+## Fork Author
+
+Savva Madar (<savva.madar@gmail.com>)
+
+## Original Author
 
 Tim Cooper (<tim.cooper@layeh.com>)

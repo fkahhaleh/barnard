@@ -18,6 +18,7 @@ func main() {
 	password := flag.String("password", "", "the password of the server")
 	insecure := flag.Bool("insecure", false, "skip server certificate verification")
 	certificate := flag.String("certificate", "", "PEM encoded certificate and private key")
+	voiceon := flag.Bool("voiceon", false, "auto enables voice streaming if true")
 
 	flag.Parse()
 
@@ -25,6 +26,7 @@ func main() {
 	b := Barnard{
 		Config:  gumble.NewConfig(),
 		Address: *server,
+		VoiceOn: *voiceon,
 	}
 
 	b.Config.Username = *username
